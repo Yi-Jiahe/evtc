@@ -486,7 +486,7 @@ func parseStateChangeEvent(chain *EventChain, event cbtevent1) (Event, error) {
 		}, nil
 	default:
 		// TODO: generic format for unhandled cbtstatechange events
-		return nil, error.New("TODO")
+		return nil, errors.New("TODO")
 	}
 }
 
@@ -526,7 +526,7 @@ func parseActivationEvent(chain *EventChain, event cbtevent1) (Event, error) {
 			Reset:       true,
 		}, nil
 	default:
-		return nil, error.New("TODO")
+		return nil, errors.New("TODO")
 	}
 }
 
@@ -553,7 +553,7 @@ func parseBuffRemoveEvent(chain *EventChain, event cbtevent1) (Event, error) {
 		e.Synthesized = true
 		e.All = false
 	default:
-		return nil, error.New("TODO")
+		return nil, errors.New("TODO")
 	}
 
 	return e, nil
@@ -621,7 +621,7 @@ func parseDirectDamageEvent(chain *EventChain, event cbtevent1) (Event, error) {
 	case 9: // CBTR_DOWNED, hit was downing hit
 		e.BecameDowned = true
 	default:
-		return nil, error.New("TODO")
+		return nil, errors.New("TODO")
 	}
 
 	return e, nil
