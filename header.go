@@ -16,7 +16,7 @@ type header struct {
 	Reserved uint8   // unused; reserved
 }
 
-func parseHeader(r io.Reader) (header, []agent, map[uint32]string, error) {
+func ParseHeader(r io.Reader) (header, []agent, map[uint32]string, error) {
 	var h header
 	if err := errors.Wrap(binary.Read(r, binary.LittleEndian, &h), "evtc: could not read header"); err != nil {
 		return header{}, nil, nil, err

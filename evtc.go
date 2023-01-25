@@ -10,7 +10,7 @@ import (
 
 // Parse parses and EVTC file.
 func Parse(r io.Reader) (*EventChain, error) {
-	h, agents, skills, err := parseHeader(r)
+	h, agents, skills, err := ParseHeader(r)
 	if err != nil {
 		return nil, err
 	}
