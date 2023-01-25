@@ -5,7 +5,6 @@ import (
 	"math"
 	"time"
 
-	"github.com/davecgh/go-spew/spew"
 	"github.com/google/uuid"
 	"github.com/pkg/errors"
 	"golang.org/x/text/language"
@@ -487,8 +486,7 @@ func parseStateChangeEvent(chain *EventChain, event cbtevent1) (Event, error) {
 		}, nil
 	default:
 		// TODO: generic format for unhandled cbtstatechange events
-		spew.Dump(event)
-		panic("TODO")
+		return nil, error.New("TODO")
 	}
 }
 
@@ -528,8 +526,7 @@ func parseActivationEvent(chain *EventChain, event cbtevent1) (Event, error) {
 			Reset:       true,
 		}, nil
 	default:
-		spew.Dump(event)
-		panic("TODO")
+		return nil, error.New("TODO")
 	}
 }
 
@@ -556,8 +553,7 @@ func parseBuffRemoveEvent(chain *EventChain, event cbtevent1) (Event, error) {
 		e.Synthesized = true
 		e.All = false
 	default:
-		spew.Dump(event)
-		panic("TODO")
+		return nil, error.New("TODO")
 	}
 
 	return e, nil
@@ -625,8 +621,7 @@ func parseDirectDamageEvent(chain *EventChain, event cbtevent1) (Event, error) {
 	case 9: // CBTR_DOWNED, hit was downing hit
 		e.BecameDowned = true
 	default:
-		spew.Dump(event)
-		panic("TODO")
+		return nil, error.New("TODO")
 	}
 
 	return e, nil
